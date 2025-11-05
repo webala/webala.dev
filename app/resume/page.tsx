@@ -104,7 +104,7 @@ export default function ResumePage() {
               </div>
               <ul className="list-disc list-outside ml-5 space-y-2 text-text-secondary">
                 <li>
-                  Engineered a Django backend for a betting site, integrating
+                  Engineered a Django backend for a gaming platform, integrating
                   ledger accounts to track user and system balances, resulting
                   in a 20% reduction in reconciliation time.
                 </li>
