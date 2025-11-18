@@ -36,8 +36,10 @@ export default function ContactForm() {
         },
         body: JSON.stringify(data),
       });
+        console.log("response: ", response.body);
 
       if (!response.ok) {
+        console.log("response: ", response);
         throw new Error("Failed to send message");
       }
 
@@ -130,13 +132,13 @@ export default function ContactForm() {
             </div>
 
             {/* Submit Button */}
-            <div className="flex flex-col items-center gap-4">
+            <div className="flex flex-col items-start gap-4">
               <button
                 type="submit"
                 disabled={isSubmitting}
                 className="bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-md transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-primary/50 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 group"
               >
-                <span>{isSubmitting ? "Sending..." : "Stay Connected"}</span>
+                <span>{isSubmitting ? "Sending..." : "Send message"}</span>
                 <ArrowRight
                   size={20}
                   className="group-hover:translate-x-1 transition-transform"
