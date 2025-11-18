@@ -57,10 +57,14 @@ export default function AdminLoginPage() {
     setLoading(true);
 
     try {
+      // Use environment variable or fall back to window.location.origin
+      const redirectUrl =
+        process.env.NEXT_PUBLIC_SITE_URL || window.location.origin;
+
       const { data, error } = await supabase.auth.signInWithOAuth({
         provider: "github",
         options: {
-          redirectTo: `${window.location.origin}/admin/dashboard`,
+          redirectTo: `${redirectUrl}/admin/dashboard`,
         },
       });
 
