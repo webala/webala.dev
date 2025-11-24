@@ -49,7 +49,7 @@ export default function Hero() {
               contol, payment processing among other features.
             </p>
 
-            <div className="flex flex-col md:flex-row md:items-center space-x-3">
+            <div className="flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-3">
               <button onClick={navigateToResume} className="bg-primary hover:bg-primary-dark text-white px-8 py-2 rounded-md transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-primary/50">
                 View Resume
               </button>
