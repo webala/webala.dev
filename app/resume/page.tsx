@@ -1,5 +1,6 @@
 "use client";
 
+import Navigation from "@/components/Navigation";
 import { Download, Mail, Phone, Linkedin, MapPin } from "lucide-react";
 
 export default function ResumePage() {
@@ -14,6 +15,7 @@ export default function ResumePage() {
 
   return (
     <main className="min-h-screen bg-bg-dark pt-20 pb-12">
+      <Navigation />
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Download Button - Fixed Position */}
         <div className="flex justify-end mb-6">

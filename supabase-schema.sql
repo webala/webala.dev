@@ -188,3 +188,30 @@ CREATE POLICY "Authenticated users can delete messages"
 -- Success message
 SELECT 'Database schema created successfully! You can now start using your portfolio website.' AS message;
 
+-- ========================================
+-- DROP CONTACT MESSAGES TABLE AND POLICIES
+-- ========================================
+-- Run this section to completely remove the contact_messages table and its policies
+-- This includes all policies from the original schema and fix files
+
+-- Drop all policies associated with contact_messages table
+-- (Including variations from FIX_CONTACT_RLS.sql and FIX_RLS_POLICIES.sql)
+DROP POLICY IF EXISTS "Public can insert contact messages" ON contact_messages;
+DROP POLICY IF EXISTS "Anyone can insert contact messages" ON contact_messages;
+DROP POLICY IF EXISTS "anon can insert contact messages" ON contact_messages;
+DROP POLICY IF EXISTS "Allow public to insert contact messages" ON contact_messages;
+DROP POLICY IF EXISTS "anon_insert_contact_messages" ON contact_messages;
+DROP POLICY IF EXISTS "authenticated_insert_contact_messages" ON contact_messages;
+DROP POLICY IF EXISTS "Authenticated users can view all messages" ON contact_messages;
+DROP POLICY IF EXISTS "authenticated_select_contact_messages" ON contact_messages;
+DROP POLICY IF EXISTS "Authenticated users can update messages" ON contact_messages;
+DROP POLICY IF EXISTS "authenticated_update_contact_messages" ON contact_messages;
+DROP POLICY IF EXISTS "Authenticated users can delete messages" ON contact_messages;
+DROP POLICY IF EXISTS "authenticated_delete_contact_messages" ON contact_messages;
+
+-- Drop the contact_messages table
+DROP TABLE IF EXISTS contact_messages CASCADE;
+
+-- Confirmation message
+SELECT 'Contact messages table and all associated policies have been dropped successfully.' AS message;
+

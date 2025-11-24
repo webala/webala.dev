@@ -36,10 +36,10 @@ export default function ContactForm() {
         },
         body: JSON.stringify(data),
       });
-        console.log("response: ", response.body);
+      console.log("response: ", response.body);
 
       if (!response.ok) {
-        console.log("response: ", response);
+        console.log("response: =====>", response);
         throw new Error("Failed to send message");
       }
 
@@ -66,8 +66,7 @@ export default function ContactForm() {
               <span className="text-primary">Connect</span> with me
             </h2>
             <p>
-              Need a senior engineer who can architect scalable systems and lead
-              technical teams?{" "}
+              Need an engineer who can architect and work on scalable systems?{" "}
             </p>
             <p>I'm here to deliver.</p>
           </div>
@@ -152,10 +151,7 @@ export default function ContactForm() {
                 </p>
               )}
               {submitStatus === "error" && (
-                <p className="text-primary text-sm">
-                  Failed to send message. Please try again or check your
-                  Supabase configuration.
-                </p>
+                <p className="text-primary text-sm">Failed to send message.</p>
               )}
             </div>
           </form>

@@ -1,11 +1,14 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { Home, BookOpen, Mail, Menu, FileText } from "lucide-react";
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,6 +18,15 @@ export default function Navigation() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    // If we're not on the home page, redirect to home page first
+    if (pathname !== "/") {
+      e.preventDefault();
+      router.push("/#contact");
+    }
+    // If we're on the home page, the default anchor link behavior will work
+  };
 
   return (
     <nav
@@ -63,6 +75,7 @@ export default function Navigation() {
             </Link>
             <Link
               href="#contact"
+              onClick={handleContactClick}
               className="flex items-center gap-2 text-text-secondary hover:text-primary transition-colors duration-200 group"
             >
               <Mail

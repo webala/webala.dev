@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/lib/providers";
-import Navigation from "@/components/Navigation";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,9 +14,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Software Engineer Portfolio | Webala",
+  title: "webala.dev",
   description:
     "Portfolio website showcasing my work as a software engineer, including projects, blog posts, and contact information.",
+  icons: {
+    icon: "/w-logo.png",
+  },
 };
 
 export default function RootLayout({
