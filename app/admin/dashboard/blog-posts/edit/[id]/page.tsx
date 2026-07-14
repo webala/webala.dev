@@ -26,9 +26,9 @@ export default function EditBlogPostPage() {
 
       if (error) throw error;
       setPost(data);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error("Error fetching post:", err);
-      setError(err.message || "Failed to load post");
+      setError(err instanceof Error ? err.message : "Failed to load post");
     } finally {
       setLoading(false);
     }

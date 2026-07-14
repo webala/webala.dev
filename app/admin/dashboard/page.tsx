@@ -82,7 +82,7 @@ export default function AdminDashboard() {
           Dashboard Overview
         </h1>
         <p className="text-text-secondary">
-          Welcome back! Here's what's happening with your portfolio.
+          Welcome back! Here&apos;s what&apos;s happening with your portfolio.
         </p>
       </div>
 

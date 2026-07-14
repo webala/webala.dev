@@ -26,9 +26,9 @@ export default function EditProjectPage() {
 
       if (error) throw error;
       setProject(data);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error("Error fetching project:", err);
-      setError(err.message || "Failed to load project");
+      setError(err instanceof Error ? err.message : "Failed to load project");
     } finally {
       setLoading(false);
     }

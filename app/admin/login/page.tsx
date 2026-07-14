@@ -43,9 +43,11 @@ export default function AdminLoginPage() {
         // Navigate to dashboard
         router.push("/admin/dashboard");
       }
-    } catch (err: any) {
+    } catch (err: unknown) {
       setError(
-        err.message || "Failed to login. Please check your credentials."
+        err instanceof Error
+          ? err.message
+          : "Failed to login. Please check your credentials."
       );
     } finally {
       setLoading(false);
@@ -61,7 +63,7 @@ export default function AdminLoginPage() {
       const redirectUrl =
         process.env.NEXT_PUBLIC_SITE_URL || window.location.origin;
 
-      const { data, error } = await supabase.auth.signInWithOAuth({
+      const { error } = await supabase.auth.signInWithOAuth({
         provider: "github",
         options: {
           redirectTo: `${redirectUrl}/admin/dashboard`,
@@ -69,8 +71,12 @@ export default function AdminLoginPage() {
       });
 
       if (error) throw error;
-    } catch (err: any) {
-      setError(err.message || "Failed to login with GitHub. Please try again.");
+    } catch (err: unknown) {
+      setError(
+        err instanceof Error
+          ? err.message
+          : "Failed to login with GitHub. Please try again."
+      );
       setLoading(false);
     }
   };

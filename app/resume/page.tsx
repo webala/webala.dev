@@ -1,7 +1,7 @@
 "use client";
 
 import Navigation from "@/components/Navigation";
-import { Download, Mail, Phone, Linkedin, MapPin } from "lucide-react";
+import { Download, Mail, Linkedin, MapPin } from "lucide-react";
 
 export default function ResumePage() {
   const handleDownload = () => {
@@ -292,7 +292,7 @@ export default function ResumePage() {
                   improving code maintainability.
                 </li>
                 <li>
-                  Led a team of 3 engineers to build MentorIst's in-app chat
+                  Led a team of 3 engineers to build MentorIst&apos;s in-app chat
                   feature, resulting in a 30% increase in user engagement within
                   the first month of launch.
                 </li>

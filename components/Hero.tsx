@@ -27,14 +27,14 @@ export default function Hero() {
           {/* Left Content */}
           <div className="space-y-8">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-              Hello, I'm
+              Hello, I&apos;m
               <br />
               <span className=" text-primary">Daniel Webala</span>
             </h1>
 
             <p>
               A software engineer specializing in building scalable web
-              applications. I'm currently building{" "}
+              applications. I&apos;m currently building{" "}
               <Link
                 href="https://app.swift9os.com"
                 target="_blank"

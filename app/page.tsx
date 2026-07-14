@@ -1,5 +1,4 @@
 import Hero from "@/components/Hero";
-import SkillSet from "@/components/SkillSet";
 import Projects from "@/components/Projects";
 import FeaturedBlogs from "@/components/FeaturedBlogs";
 import ContactForm from "@/components/ContactForm";

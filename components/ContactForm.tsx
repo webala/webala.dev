@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { ContactMessage } from "@/types";
 import { ArrowRight } from "lucide-react";
 
 interface FormData {
@@ -68,7 +67,7 @@ export default function ContactForm() {
             <p>
               Need an engineer who can architect and work on scalable systems?{" "}
             </p>
-            <p>I'm here to deliver.</p>
+            <p>I&apos;m here to deliver.</p>
           </div>
 
           {/* Form */}
@@ -147,7 +146,7 @@ export default function ContactForm() {
               {/* Status Messages */}
               {submitStatus === "success" && (
                 <p className="text-green-500 text-sm">
-                  Message sent successfully! I'll get back to you soon.
+                  Message sent successfully! I&apos;ll get back to you soon.
                 </p>
               )}
               {submitStatus === "error" && (

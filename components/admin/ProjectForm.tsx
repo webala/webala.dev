@@ -64,9 +64,9 @@ export default function ProjectForm({ project, isEditing = false }: ProjectFormP
 
       router.push("/admin/dashboard/projects");
       router.refresh();
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Error saving project:", error);
-      alert(error.message || "Failed to save project");
+      alert(error instanceof Error ? error.message : "Failed to save project");
     } finally {
       setLoading(false);
     }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
 import { ArrowLeft, Save } from "lucide-react";
@@ -68,9 +68,9 @@ export default function BlogPostForm({ post, isEditing = false }: BlogPostFormPr
 
       router.push("/admin/dashboard/blog-posts");
       router.refresh();
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Error saving post:", error);
-      alert(error.message || "Failed to save post");
+      alert(error instanceof Error ? error.message : "Failed to save post");
     } finally {
       setLoading(false);
     }
