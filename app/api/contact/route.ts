@@ -4,7 +4,13 @@ import { submitContactMessage } from "@/lib/queries";
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, email, message } = body;
+    const { name, email, message, company } = body;
+
+    // Honeypot: real visitors never see this field. Pretend success so bots
+    // don't learn they were filtered.
+    if (typeof company === "string" && company.trim().length > 0) {
+      return NextResponse.json({ success: true }, { status: 200 });
+    }
 
     // Validate input
     if (!name || !email || !message) {
