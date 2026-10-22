@@ -1,72 +1,340 @@
 @import "tailwindcss";
 
-:root {
-  /* Design colors from portfolio mockup */
-  --color-primary: #ff5757;
-  --color-primary-dark: #ff4444;
-  --color-primary-light: #ff6b6b;
-  
-  --color-background: #1a1625;
-  --color-background-light: #252131;
-  --color-background-lighter: #2a2537;
-  
-  --color-text-primary: #ffffff;
-  --color-text-secondary: #9ca3af;
-  --color-text-muted: #6b7280;
+/*
+  Design tokens — "Auros" abyssal terminal.
+  Surfaces are a single teal stack (deep → abyss → kelp); depth comes from
+  colour shifts, never shadows. Chromatic colour is rationed: silver/white
+  carry content, lavender-phosphor marks statistics, the aurora gradient is
+  reserved for the primary call to action.
+*/
+@theme {
+  /* Surfaces */
+  --color-liquid-deep: #011d1c;
+  --color-liquid-abyss: #012624;
+  --color-liquid-kelp: #003734;
+  --color-kelp-hover: #03514b;
+
+  /* Text */
+  --color-platinum: #ffffff;
+  --color-liquid-mist: #edfffe;
+  --color-silver-mist: #bbc7c6;
+  --color-ash: #f2f2f2;
+  --color-slate-deep: #707777;
+
+  /* Accent */
+  --color-lavender-phosphor: #fde9ff;
+  --color-aqua: #cbfffc;
+  --color-teal-glow: #00827c;
+
+  /* Legacy aliases used by the admin dashboard — remapped to the new palette
+     so those pages recolour without edits. */
+  --color-primary: #00827c;
+  --color-primary-dark: var(--color-liquid-kelp);
+  --color-primary-light: var(--color-aqua);
+  --color-bg-dark: var(--color-liquid-abyss);
+  --color-bg-light: var(--color-liquid-kelp);
+  --color-bg-lighter: var(--color-kelp-hover);
+  --color-text: var(--color-platinum);
+  --color-text-secondary: var(--color-silver-mist);
+  --color-text-muted: var(--color-slate-deep);
+
+  /* Shape */
+  --radius-card: 16px;
+  --radius-small: 6px;
+
+  /* Type */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, sans-serif;
+
+  --tracking-eyebrow: 0.12em;
+  --tracking-caption: 0.08em;
 }
 
-@theme inline {
-  /* Custom color palette */
-  --color-primary: var(--color-primary);
-  --color-primary-dark: var(--color-primary-dark);
-  --color-primary-light: var(--color-primary-light);
-  
-  --color-bg-dark: var(--color-background);
-  --color-bg-light: var(--color-background-light);
-  --color-bg-lighter: var(--color-background-lighter);
-  
-  --color-text: var(--color-text-primary);
-  --color-text-secondary: var(--color-text-secondary);
-  --color-text-muted: var(--color-text-muted);
-  
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+:root {
+  --gradient-bioluminescent: linear-gradient(
+    90deg,
+    rgb(0, 130, 124) 0%,
+    rgb(203, 255, 252) 100%
+  );
+  --gradient-aurora: linear-gradient(
+    90deg,
+    rgb(203, 255, 252) 0%,
+    rgb(237, 255, 254) 26.25%,
+    rgb(255, 253, 250) 47.57%,
+    rgb(250, 209, 255) 88.96%
+  );
+  --hairline: rgba(255, 255, 255, 0.1);
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--color-liquid-abyss);
 }
 
 html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  margin: 0;
-  padding: 0;
 }
 
 body {
-  background: var(--color-background);
-  color: var(--color-text-primary);
-  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
-  line-height: 1.6;
+  background: var(--color-liquid-abyss);
+  color: var(--color-silver-mist);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
+h1,
+h2,
+h3,
+h4 {
+  color: var(--color-platinum);
+  font-weight: 500;
 }
 
-/* Custom scrollbar */
+::selection {
+  background: var(--color-aqua);
+  color: var(--color-liquid-deep);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-liquid-mist);
+  outline-offset: 3px;
+  border-radius: var(--radius-small);
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }
-
 ::-webkit-scrollbar-track {
-  background: var(--color-background);
+  background: var(--color-liquid-deep);
 }
-
 ::-webkit-scrollbar-thumb {
-  background: var(--color-background-light);
+  background: var(--color-liquid-kelp);
   border-radius: 5px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-primary);
+  background: var(--color-kelp-hover);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---------- Typographic roles ---------- */
+
+@utility eyebrow {
+  font-size: 12px;
+  line-height: 1.4;
+  font-weight: 500;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-silver-mist);
+}
+
+@utility caption {
+  font-size: 11px;
+  line-height: 1.4;
+  font-weight: 400;
+  letter-spacing: var(--tracking-caption);
+  text-transform: uppercase;
+}
+
+@utility display {
+  font-size: clamp(2.75rem, 1.5rem + 5.5vw, 6rem);
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  color: var(--color-platinum);
+  text-wrap: balance;
+}
+
+@utility heading-lg {
+  font-size: clamp(2.1rem, 1.4rem + 3vw, 3.8rem);
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  color: var(--color-platinum);
+  text-wrap: balance;
+}
+
+@utility heading {
+  font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.25rem);
+  line-height: 1.05;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--color-platinum);
+}
+
+@utility subheading {
+  font-size: 24px;
+  line-height: 1.3;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--color-platinum);
+}
+
+@utility stat {
+  font-size: clamp(2.5rem, 1.5rem + 4vw, 5.25rem);
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: -0.046em;
+  color: var(--color-lavender-phosphor);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Surfaces ---------- */
+
+@utility surface-card {
+  background: var(--color-liquid-kelp);
+  border-radius: var(--radius-card);
+}
+
+@utility recessed {
+  background: var(--color-liquid-deep);
+  border-radius: var(--radius-card);
+}
+
+@utility hairline {
+  border: 1px solid var(--hairline);
+}
+
+/* ---------- Controls ---------- */
+
+@utility btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  border-radius: var(--radius-small);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  line-height: 1;
+  padding: 1.05rem 1.5rem;
+  white-space: nowrap;
+  transition:
+    background-color 200ms ease,
+    color 200ms ease,
+    border-color 200ms ease,
+    filter 200ms ease;
+}
+
+@utility btn-gradient {
+  background-image: var(--gradient-aurora);
+  color: var(--color-liquid-deep);
+  &:hover {
+    filter: brightness(1.04) saturate(1.1);
+  }
+}
+
+@utility btn-ghost {
+  background: transparent;
+  color: var(--color-platinum);
+  border: 1px solid var(--hairline);
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.28);
+    background: rgba(255, 255, 255, 0.03);
+  }
+}
+
+@utility btn-kelp {
+  background: var(--color-liquid-kelp);
+  color: var(--color-platinum);
+  &:hover {
+    background: var(--color-kelp-hover);
+  }
+}
+
+@utility arrow-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  flex: none;
+  border-radius: var(--radius-small);
+  background: rgba(3, 81, 75, 0.5);
+  color: var(--color-platinum);
+  transition:
+    background-color 200ms ease,
+    transform 200ms ease;
+  &:hover {
+    background: var(--color-kelp-hover);
+  }
+}
+
+@utility field {
+  width: 100%;
+  background: var(--color-liquid-kelp);
+  color: var(--color-platinum);
+  border: 1px solid transparent;
+  border-radius: var(--radius-small);
+  padding: 0.95rem 1.1rem;
+  font-size: 15px;
+  line-height: 1.4;
+  transition: border-color 200ms ease;
+  &::placeholder {
+    color: var(--color-slate-deep);
+  }
+  &:focus {
+    outline: none;
+    border-color: rgba(203, 255, 252, 0.5);
+  }
+}
+
+@utility nav-link {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-silver-mist);
+  transition: color 200ms ease;
+  &:hover {
+    color: var(--color-platinum);
+  }
+}
+
+@utility link-mist {
+  color: var(--color-liquid-mist);
+  text-decoration: underline;
+  text-decoration-color: rgba(237, 255, 254, 0.35);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 200ms ease;
+  &:hover {
+    text-decoration-color: var(--color-liquid-mist);
+  }
+}
+
+/* ---------- Layout ---------- */
+
+@utility container-site {
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 4rem);
+}
+
+@utility hero-fade {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(1, 38, 36, 0) 0%,
+    rgba(1, 38, 36, 0.35) 45%,
+    rgba(1, 38, 36, 0.92) 72%,
+    var(--color-liquid-abyss) 100%
+  );
 }

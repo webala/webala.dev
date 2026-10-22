@@ -1,25 +1,54 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/lib/providers";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/next";
+import { site } from "@/lib/content/site";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
   subsets: ["latin"],
+  weight: ["400", "500"],
+  display: "swap",
+  variable: "--font-inter",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const defaultTitle = `${site.name} · Lead Engineer`;
 
 export const metadata: Metadata = {
-  title: "webala.dev",
-  description:
-    "Portfolio website showcasing my work as a software engineer, including projects, blog posts, and contact information.",
-  icons: {
-    icon: "/w-logo.png",
+  metadataBase: new URL(site.url),
+  title: {
+    default: defaultTitle,
+    template: `%s · ${site.wordmark}`,
+  },
+  description: site.description,
+  keywords: [
+    "Daniel Webala",
+    "software engineer",
+    "lead engineer",
+    "full-stack developer",
+    "Nairobi",
+    "Next.js",
+    "Django",
+    "Node.js",
+    "M-Pesa integration",
+  ],
+  authors: [{ name: site.name, url: site.url }],
+  creator: site.name,
+  openGraph: {
+    type: "website",
+    url: site.url,
+    siteName: site.wordmark,
+    title: defaultTitle,
+    description: site.description,
+    locale: "en_US",
+    images: [{ url: "/w-logo.png", width: 512, height: 512, alt: site.wordmark }],
+  },
+  twitter: {
+    card: "summary",
+    site: "@Webbie1001",
+    creator: "@Webbie1001",
+    title: defaultTitle,
+    description: site.description,
   },
 };
 
@@ -29,10 +58,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="en" className={inter.variable}>
+      <body>
         <Providers>
           {children}
           <Analytics />
