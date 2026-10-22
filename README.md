@@ -1,23 +1,25 @@
 # Software Engineer Portfolio
 
-A modern, beautiful portfolio website built with Next.js 15, TypeScript, Tailwind CSS, and Supabase.
+Personal portfolio of Daniel Webala — a dark, cinematic single-page site with a particle-sphere hero, projects and articles fed from Supabase, an experience timeline, an online résumé and a contact call to action. Built with Next.js 16, TypeScript, Tailwind CSS 4 and Supabase.
 
 ## Features
 
-- 🎨 Modern design based on provided mockup with exact color scheme
-- 💼 Projects showcase with featured projects
-- 📝 Blog system with featured posts and individual blog pages
-- 📬 Contact form with Supabase backend
-- 🎯 Skill-set section with 6 service cards
-- 📱 Fully responsive design
-- ✨ Smooth animations and transitions
-- 🚀 Built with Next.js 15 App Router
+- 🌊 "Abyssal terminal" design language: teal surface stack, Inter at weights 400/500 only, no shadows
+- 🔮 Canvas particle-sphere hero that pauses off-screen and respects reduced motion
+- 💼 Featured projects from Supabase, with a static fallback so the section never renders empty
+- 🧭 Work-experience timeline sourced from `lib/content/experience.ts` (shared with the résumé page)
+- 📄 Online résumé at `/resume` plus PDF download
+- 📝 Blog with featured-article preview, search, and per-post metadata
+- 📬 Contact call to action: direct channels plus a Supabase-backed form with a honeypot
+- 🔐 Admin dashboard for projects, posts and messages
+- 📱 Fully responsive with a working mobile menu
+- 🚀 Next.js 16 App Router
 - 🔥 TanStack Query for data fetching
 - 💾 Supabase for backend and database
 
 ## Tech Stack
 
-- **Framework**: Next.js 15 with App Router
+- **Framework**: Next.js 16 with App Router
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS 4
 - **Backend**: Supabase
@@ -72,31 +74,25 @@ Open [http://localhost:3000](http://localhost:3000) to see your portfolio.
 
 ```
 webala.dev/
-├── app/                      # Next.js App Router
-│   ├── api/                 # API routes
-│   │   └── contact/         # Contact form handler
-│   ├── blog/                # Blog pages
-│   │   ├── [slug]/         # Individual blog post
-│   │   └── page.tsx        # All blog posts
-│   ├── layout.tsx          # Root layout
-│   ├── page.tsx            # Home page
-│   └── globals.css         # Global styles with design colors
-├── components/              # React components
-│   ├── BlogCard.tsx
-│   ├── ContactForm.tsx
-│   ├── FeaturedBlogs.tsx
-│   ├── Hero.tsx
-│   ├── Navigation.tsx
-│   ├── ProjectCard.tsx
-│   ├── Projects.tsx
-│   ├── SkillCard.tsx
-│   └── SkillSet.tsx
-├── lib/                     # Utility functions
-│   ├── providers.tsx       # TanStack Query provider
-│   ├── queries.ts          # Supabase queries
-│   └── supabase.ts         # Supabase client
-└── types/                   # TypeScript types
-    └── index.ts
+├── app/
+│   ├── (site)/              # Public site: shared Navigation + Footer layout
+│   │   ├── page.tsx         # Home: Hero → Projects → Experience → Articles → Contact
+│   │   ├── blog/            # Writing index and per-post pages
+│   │   └── resume/          # Online résumé
+│   ├── admin/               # Admin dashboard (Supabase auth)
+│   ├── api/contact/         # Contact form handler
+│   ├── layout.tsx           # Root layout, Inter font, metadata
+│   ├── not-found.tsx
+│   └── globals.css          # Design tokens (@theme) and utilities
+├── components/
+│   ├── site/                # Public-site components
+│   └── admin/               # Admin forms
+├── lib/
+│   ├── content/             # site.ts, experience.ts, stats.ts, fallback-projects.ts
+│   ├── providers.tsx        # TanStack Query provider
+│   ├── queries.ts           # Supabase queries
+│   └── supabase.ts          # Supabase client
+└── types/
 ```
 
 ## Database Schema
@@ -135,15 +131,23 @@ See `supabase-schema.sql` for the complete database setup. The schema includes:
 
 Contact form submissions are automatically stored in the `contact_messages` table in Supabase.
 
-## Design Colors
+## Design Tokens
 
-The exact colors from the design mockup:
+Defined in `app/globals.css` under `@theme`:
 
-- **Primary**: `#ff5757` (Coral Red)
-- **Background**: `#1a1625` (Dark Navy)
-- **Card Background**: `#252131` (Lighter Dark)
-- **Text**: `#ffffff` (White)
-- **Text Secondary**: `#9ca3af` (Gray)
+| Role | Token | Value |
+|---|---|---|
+| Page canvas | `liquid-abyss` | `#012624` |
+| Recessed surface (footer, CTA well) | `liquid-deep` | `#011d1c` |
+| Raised card surface | `liquid-kelp` | `#003734` |
+| Headings, nav | `platinum` | `#ffffff` |
+| Emphasised text | `liquid-mist` | `#edfffe` |
+| Body text | `silver-mist` | `#bbc7c6` |
+| Muted text | `slate-deep` | `#707777` |
+| Statistics | `lavender-phosphor` | `#fde9ff` |
+
+The aurora gradient (`--gradient-aurora`) is reserved for the primary call to action. Legacy token names used by the admin dashboard (`primary`, `bg-dark`, `text`, …) are aliased to this palette.
+
 
 ## Deployment
 
@@ -163,17 +167,21 @@ Make sure to add your environment variables in the Vercel dashboard.
 
 ## Customization
 
-### Update Skills
+### Update personal details, navigation and socials
 
-Edit `components/SkillSet.tsx` to customize the skills displayed.
+Edit `lib/content/site.ts`.
 
-### Update Navigation
+### Update work experience, education and skills
 
-Edit `components/Navigation.tsx` to add or remove navigation items.
+Edit `lib/content/experience.ts`; both the home-page timeline and `/resume` read from it. Replace `public/resume.pdf` to update the downloadable CV.
 
-### Modify Colors
+### Update hero statistics
 
-Edit `app/globals.css` to change the color scheme.
+Edit `lib/content/stats.ts`.
+
+### Modify the design tokens
+
+Edit the `@theme` block in `app/globals.css`.
 
 ## License
 

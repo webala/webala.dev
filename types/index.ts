@@ -35,9 +35,3 @@ export interface ContactMessage {
   read?: boolean;
   created_at?: string;
 }
-
-export interface Skill {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-}
