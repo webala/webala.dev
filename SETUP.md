@@ -54,11 +54,11 @@ Open [http://localhost:3000](http://localhost:3000) 🎉
 
 ## ✅ What You Should See
 
-- **Hero Section**: "Hello, I'm a Software Engineer"
-- **Skill-Set Section**: 6 skill cards with icons
-- **Projects Section**: Sample projects from database
-- **Blog Section**: 3 featured blog posts
-- **Contact Form**: Working contact form
+- **Hero**: particle sphere, headline, résumé and contact buttons, statistics
+- **Work**: featured projects from the database (or the built-in fallback)
+- **Experience**: timeline with a link to the full résumé
+- **Writing**: up to 3 featured articles
+- **Contact**: direct channels plus the message form
 
 ## 📝 Next Steps
 
@@ -76,14 +76,13 @@ Open [http://localhost:3000](http://localhost:3000) 🎉
    - Add your own blog posts
    - Use markdown for formatting
 
-3. **Customize Skills**
+3. **Update Experience and Skills**
 
-   - Edit `components/SkillSet.tsx`
-   - Update the skills array with your own skills
+   - Edit `lib/content/experience.ts` (used by the home page and `/resume`)
 
 4. **Update Personal Info**
-   - Edit hero text in `components/Hero.tsx`
-   - Update navigation in `components/Navigation.tsx`
+   - Edit `lib/content/site.ts` for name, role, socials and navigation
+   - Edit `lib/content/stats.ts` for the hero statistics
    - Modify metadata in `app/layout.tsx`
 
 ### Deploy to Production
@@ -137,13 +136,9 @@ All work great with Next.js!
 - [Tailwind CSS Documentation](https://tailwindcss.com/docs)
 - [TanStack Query Documentation](https://tanstack.com/query)
 
-## 🎨 Design Colors Reference
+## 🎨 Design Tokens
 
-- **Primary (Coral Red)**: `#ff5757`
-- **Background Dark**: `#1a1625`
-- **Card Background**: `#252131`
-- **Text Primary**: `#ffffff`
-- **Text Secondary**: `#9ca3af`
+See the "Design Tokens" table in `README.md`; everything lives in the `@theme` block of `app/globals.css`.
 
 ## 💡 Tips
 
