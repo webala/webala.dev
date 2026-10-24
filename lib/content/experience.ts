@@ -1,7 +1,10 @@
+export type Engagement = "Contract" | "Employment";
+
 export interface Role {
   id: string;
   title: string;
   company: string;
+  engagement: Engagement;
   location: string;
   start: string;
   end: string;
@@ -12,68 +15,100 @@ export interface Role {
   stack: string[];
 }
 
+/** Roles, newest first. Titles, dates and figures are kept exactly as verified. */
 export const experience: Role[] = [
   {
-    id: "mothan",
-    title: "Lead Engineer",
-    company: "Mothan Technologies",
+    id: "grabride",
+    title: "React Native Engineer",
+    company: "Grabride",
+    engagement: "Contract",
     location: "Nairobi, Kenya",
-    start: "Jun 2025",
+    start: "Apr 2026",
     end: "Present",
     summary:
-      "Leading engineering on a high-traffic gaming platform: ledgered balances, real-time odds and a CI/CD pipeline.",
+      "Rider and driver apps for a Kenyan ride-hailing platform, shipped to the iOS App Store and Google Play.",
     bullets: [
-      "Engineered a Django backend for a gaming platform, integrating ledger accounts to track user and system balances, resulting in a 20% reduction in reconciliation time.",
-      "Developed a Next.js frontend with SCSS styling, improving user engagement by 15% through a more responsive and intuitive interface.",
-      "Implemented Redis caching strategies, decreasing average page load times by 40% and enhancing the overall user experience.",
-      "Automated odds and sports data synchronization using cron jobs, reducing manual intervention by 90% and ensuring real-time accuracy.",
-      "Established a CI/CD pipeline, accelerating deployment cycles by 50% and enabling faster iteration and feature releases.",
+      "Build the rider and driver apps in React Native and TypeScript on Expo SDK 57 and React Native 0.86 (New Architecture) with Expo Router, NativeWind and Gluestack UI.",
+      "Designed the driver onboarding and KYC flow: multi-step driver and vehicle details, document uploads, a selfie and liveness check, and a verification status flow so drivers can only go online once approved.",
+      "Ride booking, taxi type selection, driver matching, trip tracking and live ETA on Google Maps Platform (Maps SDK, Routes API), with Firebase, Google Sign-In, push notifications and background location for drivers.",
+      "Typed API layer with TanStack Query and axios, request throttling and rate limiting; forms with React Hook Form and schema validation.",
+      "Upgraded both apps to Expo SDK 57 / React Native 0.86; GitHub Actions pull-request checks and a release pipeline that builds signed Android App Bundles; Jest tests with jest-expo.",
+      "Work through pull requests with another engineer in the company GitHub organisation; handled Google Play listing and policy fixes.",
     ],
-    highlights: [0, 4],
-    stack: ["Django", "Next.js", "Redis", "PostgreSQL", "CI/CD"],
+    highlights: [1, 4],
+    stack: ["React Native", "Expo", "TypeScript", "Google Maps Platform", "Firebase", "GitHub Actions"],
   },
   {
     id: "beatbnk",
-    title: "Senior Developer",
+    title: "Software Engineer",
     company: "BeatBnk Limited",
+    engagement: "Contract",
     location: "Nairobi, Kenya",
     start: "Jun 2025",
-    end: "Present",
+    end: "May 2026",
     summary:
-      "Payments and real-time infrastructure for a fintech product: M-Pesa and Paystack integration, queues and test automation.",
+      "Fintech product work across a Next.js front end and a Node.js microservices backend: payments, KYC, queues and test automation.",
     bullets: [
-      "Engineered a Next.js frontend with Tailwind CSS, decreasing page load times by 40% and improving user engagement by 25% through optimized component rendering.",
-      "Integrated M-Pesa and Paystack payment gateways into the Node.js backend, processing over 10,000 transactions in the first month with a 99.9% success rate.",
-      "Streamlined message queue processing in the Node.js backend, reducing latency by 15% and improving the overall system responsiveness for real-time data updates.",
-      "Developed and implemented Jest unit tests that improved code quality, leading to a 15% decrease in critical production issues.",
-      "Collaborated with cross-functional teams to design and implement comprehensive end-to-end automated tests, resolving over 50 complex integration issues and improving system stability by 18%.",
+      "Integrated M-Pesa and Paystack payment gateways into the Node.js backend: 1,000+ transactions in the first month at a 99.9% success rate.",
+      "Made payment processing idempotent, eliminating double charges and cutting transaction error rates by 25%.",
+      "Built the KYC flow: ID document upload during onboarding, a pending / approved / rejected verification status flow, and admin review tools for staff.",
+      "Streamlined message-queue processing in the backend, reducing latency by 15% for real-time data updates.",
+      "Shipped new microservices features that improved application performance by 15% for a user base of 50,000+; led a refactor of legacy microservice code that reduced complexity by 40%.",
+      "Next.js and Tailwind CSS front end with optimised component rendering: page load times down 40%, engagement up 25%.",
+      "Jest unit tests that cut critical production issues by 15%; with cross-functional teams, end-to-end automated tests that resolved 50+ integration issues and improved stability by 18%.",
+      "With mobile and marketing teams, delivered new API endpoints that launched 2 product features 2 weeks ahead of schedule.",
     ],
-    highlights: [1, 2],
-    stack: ["Node.js", "Next.js", "Tailwind CSS", "M-Pesa", "Paystack", "Jest"],
+    highlights: [1, 4],
+    stack: ["Node.js", "Next.js", "Microservices", "Message queues", "M-Pesa", "Paystack", "Jest"],
+  },
+  {
+    id: "mothan",
+    title: "Tech Lead",
+    company: "Mothan Technologies (Cheddaz Bet)",
+    engagement: "Contract",
+    location: "Nairobi, Kenya",
+    start: "Jun 2025",
+    end: "Dec 2025",
+    summary:
+      "Led a team of 2–3 engineers on a sports-betting platform and owned its architecture: stack, service design, data model and infrastructure.",
+    bullets: [
+      "Owned architecture decisions (stack, service design, data model, infrastructure), code review and coding standards for a team of 2–3 engineers.",
+      "Django backend with ledger accounts for user and system balances, cutting reconciliation time by 20%.",
+      "Near-real-time bet updates with 90% lower latency for 10,000+ concurrent users; asynchronous task processing brought average response times down 25%.",
+      "Automated odds and sports data sync with cron jobs (manual intervention down 90%) and bet settlement scripts that made settlement 50% faster and saved 15 hours a week of manual work.",
+      "Redis caching (average page load down 40%), a CI/CD pipeline (deployments 50% faster) and Prometheus and Grafana monitoring that halved critical error detection time.",
+      "Next.js front end with SCSS, engagement up 15%; a front-end architecture refactor lifted retention 15% in the first quarter after launch.",
+      "API documentation for 5+ external teams, cutting their onboarding time by 30%.",
+    ],
+    highlights: [0, 2],
+    stack: ["Django", "PostgreSQL", "Redis", "Next.js", "Prometheus", "Grafana", "CI/CD"],
   },
   {
     id: "videoelf",
     title: "Software Engineer",
     company: "VideoElf",
+    engagement: "Contract",
     location: "Nairobi, Kenya",
     start: "Nov 2024",
     end: "Jul 2025",
     summary:
-      "Built a modular Next.js frontend and a parallel video-aggregation pipeline with Celery and Redis.",
+      "Modular Next.js front end, a design system, and a parallel video-aggregation pipeline on Celery and Redis.",
     bullets: [
-      "Developed a modular Next.js frontend, reducing codebase size by 50% and improving page load times by 30% through reusable component architecture.",
-      "Engineered a scalable video aggregation pipeline using yt-dlp, Celery, and Redis, enabling parallel downloads and increasing video processing throughput by 40%.",
-      "Authored comprehensive Swagger API documentation for the Django backend, clarifying endpoints and reducing integration time for new developers by an estimated 25%.",
-      "Streamlined CI/CD pipelines with Docker and PM2, automating deployments and decreasing release cycles from 2 days to under 2 hours.",
-      "Implemented client-side data caching strategies, leveraging browser storage to improve platform performance and reduce server load by 15%, resulting in a 10% decrease in hosting costs.",
+      "Engineered a video aggregation pipeline with yt-dlp, Celery and Redis for parallel downloads, raising processing throughput by 40%.",
+      "Modular Next.js front end with a reusable component architecture: codebase 50% smaller, pages 30% faster to load.",
+      "Design system applied across 5 product modules, cutting UI-related bug reports by 25%.",
+      "CI/CD with Docker and PM2 took release cycles from 2 days to under 2 hours; backend logging and monitoring cut average error resolution time by 35%.",
+      "Swagger API documentation for the Django backend, reducing new-developer integration time by about 25%.",
+      "Client-side caching with browser storage reduced server load by 15% and hosting costs by 10%.",
     ],
-    highlights: [1, 3],
-    stack: ["Next.js", "Django", "Celery", "Redis", "Docker"],
+    highlights: [0, 3],
+    stack: ["Next.js", "Django", "Celery", "Redis", "Docker", "PM2"],
   },
   {
     id: "ahkhul",
     title: "Software Engineer",
     company: "Ah Khul Limited",
+    engagement: "Employment",
     location: "Nairobi, Kenya",
     start: "Jan 2024",
     end: "Jul 2025",
@@ -86,24 +121,25 @@ export const experience: Role[] = [
       "Led a team of 4 engineers in implementing JWT authentication across all gaming platforms, enhancing security and reducing unauthorized access attempts by 60%.",
       "Revitalized platform performance by implementing Redis caching, decreasing database load by 50% and improving API response times by 25%.",
     ],
-    highlights: [2, 3],
-    stack: ["Express.js", "React", "M-Pesa", "Redis", "JWT"],
+    highlights: [3, 4],
+    stack: ["Express.js", "React", "Redis", "JWT", "M-Pesa"],
   },
   {
     id: "spaceyatech",
     title: "Frontend Developer",
     company: "Space Ya Tech",
+    engagement: "Employment",
     location: "Nairobi, Kenya",
     start: "May 2021",
     end: "Dec 2024",
     summary:
-      "Component library and in-app chat for MentorIst, plus mentoring junior engineers in React.",
+      "Component library, in-app chat and authentication for Mentorlst, a mentorship platform, plus mentoring junior engineers.",
     bullets: [
-      "Developed and integrated 15+ reusable React components into the MentorIst project, accelerating UI development by 20% and improving code maintainability.",
-      "Led a team of 3 engineers to build MentorIst's in-app chat feature, resulting in a 30% increase in user engagement within the first month of launch.",
-      "Optimized REST API queries by implementing client-side caching, reducing average response times by 40% and improving the overall user experience.",
-      "Trained 5 junior engineers in React concepts through the MentorIst mentorship program, improving their code quality scores by 25% within 6 weeks.",
-      "Engineered and implemented a new user authentication flow using JWT, decreasing unauthorized access attempts by an estimated 90%.",
+      "Built 15+ reusable React components for Mentorlst, making UI development 20% faster.",
+      "Led a team of 3 engineers to build Mentorlst's in-app chat, lifting user engagement 30% in its first month.",
+      "REST API data fetching with client-side caching, bringing average response times down 40%.",
+      "Mentored 5 junior engineers in React through the Mentorlst mentorship program; their code quality scores rose 25% within 6 weeks.",
+      "Implemented the JWT-based user authentication flow.",
     ],
     highlights: [1, 3],
     stack: ["React", "REST", "JWT"],
@@ -113,7 +149,7 @@ export const experience: Role[] = [
 export const education = [
   {
     school: "Strathmore University",
-    degree: "Bachelor's Degree in Business Information and Technology",
+    degree: "Bachelor's Degree, Business Information Technology (in progress)",
     location: "Nairobi, Kenya",
     start: "Sep 2024",
     end: "Present",
@@ -121,21 +157,32 @@ export const education = [
 ];
 
 export const summary =
-  "Creative and collaborative Software Engineer with 5 years of experience delivering innovative solutions across frontend and backend systems. Skilled in JavaScript, TypeScript, React.js and Next.js for engaging user experiences, complemented by backend proficiency in Node.js, Django and Python. Dedicated to producing high-quality, maintainable code and fostering a collaborative team environment.";
+  "Software engineer with 5+ years building production web, mobile and backend systems, from a multi-tenant point-of-sale SaaS and a real-time gaming platform to ride-hailing apps and a video pipeline. Comfortable owning a system end to end: data model, services, clients, CI/CD and monitoring. Works in TypeScript and Python across React, Next.js, React Native, Node.js and Django, mostly with remote teams.";
 
-export const skills = [
-  "React + Next.js",
-  "JavaScript + TypeScript",
-  "Node.js + Express",
-  "Python + Django",
-  "PostgreSQL",
-  "MongoDB",
-  "Redis",
-  "Tailwind CSS",
-  "Docker",
-  "CI/CD pipelines",
-  "Microservices architecture",
-  "Linux / WSL",
-  "Code optimization",
-  "Debugging",
+export interface SkillGroup {
+  label: string;
+  items: string[];
+}
+
+export const skillGroups: SkillGroup[] = [
+  { label: "Languages", items: ["TypeScript", "JavaScript", "Python", "SQL", "HTML, CSS, SCSS"] },
+  {
+    label: "Web",
+    items: ["React", "Next.js", "TanStack Query", "TanStack Table", "React Hook Form", "Zod", "Tailwind CSS", "Vite"],
+  },
+  { label: "Mobile", items: ["React Native", "Expo", "Expo Router", "EAS", "iOS App Store and Google Play releases"] },
+  {
+    label: "Backend and APIs",
+    items: ["Node.js", "Express", "Django", "Django REST Framework", "REST API design", "WebSockets (Socket.IO, Django Channels)", "Microservices", "Message queues", "Celery", "Prisma"],
+  },
+  { label: "Data", items: ["PostgreSQL", "Supabase", "Redis", "MongoDB"] },
+  {
+    label: "Infrastructure and DevOps",
+    items: ["Docker", "GitHub Actions CI/CD", "Linux", "Nginx reverse proxy", "SSL/TLS, firewall and VPS hardening", "PM2", "Prometheus", "Grafana", "AWS (EC2, S3, RDS)", "GCP (Maps Platform, Firebase)", "Cloudflare R2", "Vercel"],
+  },
+  { label: "Testing", items: ["Jest", "Vitest", "Supertest", "Playwright", "pytest"] },
+  {
+    label: "Security and payments",
+    items: ["JWT and token auth", "HMAC and public-key request signing", "Row-level security", "M-Pesa", "Paystack"],
+  },
 ];
