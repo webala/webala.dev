@@ -117,7 +117,7 @@ export default function ResumePage() {
                         </li>
                       ))}
                     </ul>
-                    <p className="caption mt-5 text-slate-deep print-hide">
+                    <p className="meta mt-5 text-slate-deep print-hide">
                       {role.stack.join(" · ")}
                     </p>
                   </div>
@@ -166,7 +166,7 @@ export default function ResumePage() {
                     {group.items.map((item) => (
                       <span
                         key={item}
-                        className="caption rounded-[6px] bg-kelp-hover/60 px-3 py-2 text-liquid-mist print:px-1.5 print:py-0.5"
+                        className="meta rounded-[6px] bg-kelp-hover/60 px-3 py-1.5 text-liquid-mist print:px-1.5 print:py-0.5"
                       >
                         {item}
                       </span>

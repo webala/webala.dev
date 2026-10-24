@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import type { BlogPost } from "@/types";
+import { formatTech } from "@/lib/format";
 
 function formatDate(value?: string) {
   if (!value) return "Draft";
@@ -28,8 +29,8 @@ export default function ArticleCard({ post }: { post: BlogPost }) {
       )}
       <div className="flex flex-1 flex-col p-9">
         <div className="flex items-start justify-between gap-4">
-          <p className="eyebrow min-h-[1.4em]">
-            {(post.tags ?? []).slice(0, 3).join(" · ")}
+          <p className="meta min-h-[1.4em] text-silver-mist">
+            {(post.tags ?? []).slice(0, 3).map(formatTech).join(" · ")}
           </p>
           <span className="arrow-btn" aria-hidden="true">
             <ArrowUpRight size={16} strokeWidth={1.75} />

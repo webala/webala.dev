@@ -31,7 +31,7 @@ export const experience: Role[] = [
       "Build the rider and driver apps in React Native and TypeScript on Expo SDK 57 and React Native 0.86 (New Architecture) with Expo Router, NativeWind and Gluestack UI.",
       "Designed the driver onboarding and KYC flow: multi-step driver and vehicle details, document uploads, a selfie and liveness check, and a verification status flow so drivers can only go online once approved.",
       "Ride booking, taxi type selection, driver matching, trip tracking and live ETA on Google Maps Platform (Maps SDK, Routes API), with Firebase, Google Sign-In, push notifications and background location for drivers.",
-      "Typed API layer with TanStack Query and axios, request throttling and rate limiting; forms with React Hook Form and schema validation.",
+      "Typed API layer with TanStack Query and Axios, request throttling and rate limiting; forms with React Hook Form and schema validation.",
       "Upgraded both apps to Expo SDK 57 / React Native 0.86; GitHub Actions pull-request checks and a release pipeline that builds signed Android App Bundles; Jest tests with jest-expo.",
       "Work through pull requests with another engineer in the company GitHub organisation; handled Google Play listing and policy fixes.",
     ],

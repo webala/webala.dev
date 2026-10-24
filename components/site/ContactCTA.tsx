@@ -73,7 +73,7 @@ export default function ContactCTA() {
                       <SocialIcon id={s.id} />
                     </span>
                     <span className="flex flex-col">
-                      <span className="caption text-slate-deep">{s.label}</span>
+                      <span className="meta text-slate-deep">{s.label}</span>
                       <span className="text-base text-liquid-mist">{s.handle}</span>
                     </span>
                   </span>
