@@ -3,14 +3,15 @@ import { ArrowUpRight, Github } from "lucide-react";
 import type { Project } from "@/types";
 import ArrowLink from "./ArrowLink";
 
+/** Compact card for tools, client sites and experiments. */
 export default function ProjectCard({ project }: { project: Project }) {
   const primaryHref = project.demo_url || project.github_url;
   const tech = project.technologies?.slice(0, 4) ?? [];
 
   return (
-    <article className="surface-card flex h-full flex-col p-7 transition-colors duration-300 hover:bg-kelp-hover/60 md:p-9">
+    <article className="surface-card flex h-full flex-col p-9 transition-colors duration-300 hover:bg-kelp-hover/60">
       <div className="flex items-start justify-between gap-6">
-        <p className="eyebrow min-h-[1.2em] text-[11px]">{tech.join(" · ")}</p>
+        <p className="caption min-h-[1.4em] text-silver-mist">{tech.join(" · ")}</p>
         {primaryHref && (
           <ArrowLink href={primaryHref} label={`Open ${project.title}`} />
         )}
@@ -22,19 +23,19 @@ export default function ProjectCard({ project }: { project: Project }) {
             src={project.image_url}
             alt={`${project.title} screenshot`}
             fill
-            sizes="(min-width: 768px) 50vw, 100vw"
+            sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
             className="object-cover"
           />
         </div>
       )}
 
       <h3 className="subheading mt-7">{project.title}</h3>
-      <p className="mt-3 flex-1 text-[15px] leading-relaxed text-silver-mist">
+      <p className="mt-3 line-clamp-3 flex-1 text-sm leading-[1.5] text-silver-mist">
         {project.description}
       </p>
 
       {(project.demo_url || project.github_url) && (
-        <div className="mt-8 flex flex-wrap gap-6">
+        <div className="mt-7 flex flex-wrap gap-6">
           {project.demo_url && (
             <a
               href={project.demo_url}

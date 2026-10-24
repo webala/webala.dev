@@ -53,12 +53,10 @@ export default function ContactCTA() {
         <div>
           <p className="eyebrow">Contact</p>
           <h2 id="contact-heading" className="heading-lg mt-5">
-            Let&rsquo;s build something that holds up.
+            Have a system to design, build or rescue?
           </h2>
-          <p className="mt-6 max-w-[48ch] text-silver-mist">
-            Need an engineer who can architect, ship and run a system that
-            handles real money and real traffic? I&rsquo;m open to lead and senior
-            roles, and to selected freelance work.
+          <p className="mt-6 max-w-[48ch] text-base leading-[1.5] text-silver-mist">
+            {site.availability}
           </p>
 
           <ul className="mt-10 flex flex-col">
@@ -76,7 +74,7 @@ export default function ContactCTA() {
                     </span>
                     <span className="flex flex-col">
                       <span className="caption text-slate-deep">{s.label}</span>
-                      <span className="text-[15px] text-liquid-mist">{s.handle}</span>
+                      <span className="text-base text-liquid-mist">{s.handle}</span>
                     </span>
                   </span>
                   <span className="arrow-btn" aria-hidden="true">
@@ -142,7 +140,7 @@ export default function ContactCTA() {
             <textarea
               id="contact-message"
               rows={6}
-              placeholder="What are you building, and when?"
+              placeholder="What are you building, and what's the timeline?"
               className="field resize-none"
               aria-invalid={errors.message ? true : undefined}
               {...register("message", {

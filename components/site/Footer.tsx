@@ -6,8 +6,8 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-liquid-deep">
-      <div className="container-site py-20 md:py-24">
+    <footer className="print-hide bg-liquid-deep">
+      <div className="container-site py-20 md:py-30">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
           <div>
             <Link
@@ -17,14 +17,14 @@ export default function Footer() {
               <span className="inline-block h-2 w-2 rounded-full bg-aqua" aria-hidden="true" />
               webala<span className="text-silver-mist">.dev</span>
             </Link>
-            <p className="mt-5 max-w-[40ch] text-[15px] leading-relaxed text-silver-mist">
-              {site.name} — {site.role.toLowerCase()} in {site.location}. Building
-              payment-grade web systems and writing about what breaks along the way.
+            <p className="mt-5 max-w-[40ch] text-sm leading-[1.5] text-silver-mist">
+              {site.name}, software engineer in {site.location}. Building web,
+              mobile and backend systems, and writing about running them.
             </p>
           </div>
 
           <nav aria-label="Footer">
-            <p className="eyebrow text-[11px]">Navigate</p>
+            <p className="eyebrow">Navigate</p>
             <ul className="mt-5 flex flex-col gap-3">
               {site.nav.map((item) => (
                 <li key={item.href}>
@@ -42,7 +42,7 @@ export default function Footer() {
           </nav>
 
           <div>
-            <p className="eyebrow text-[11px]">Elsewhere</p>
+            <p className="eyebrow">Elsewhere</p>
             <ul className="mt-5 flex flex-col gap-3">
               {site.socials.map((s) => (
                 <li key={s.id}>

@@ -6,7 +6,8 @@ Personal portfolio of Daniel Webala — a dark, cinematic single-page site with 
 
 - 🌊 "Abyssal terminal" design language: teal surface stack, Inter at weights 400/500 only, no shadows
 - 🔮 Canvas particle-sphere hero that pauses off-screen and respects reduced motion
-- 💼 Featured projects from Supabase, with a static fallback so the section never renders empty
+- 💼 Projects from Supabase: three system-design case studies (Swift POS, JetCrash, Kikapu) plus a compact grid for the rest, with a static fallback so the section never renders empty
+- 🧠 "Approach" section: five design principles, each tied to the projects where it was applied
 - 🧭 Work-experience timeline sourced from `lib/content/experience.ts` (shared with the résumé page)
 - 📄 Online résumé at `/resume` plus PDF download
 - 📝 Blog with featured-article preview, search, and per-post metadata
@@ -146,7 +147,9 @@ Defined in `app/globals.css` under `@theme`:
 | Muted text | `slate-deep` | `#707777` |
 | Statistics | `lavender-phosphor` | `#fde9ff` |
 
-The aurora gradient (`--gradient-aurora`) is reserved for the primary call to action. Legacy token names used by the admin dashboard (`primary`, `bg-dark`, `text`, …) are aliased to this palette.
+The aurora gradient (`--gradient-aurora`) is reserved for the primary call to action.
+
+Type and spacing rules enforced on the public site: font weights 400 and 500 only; sizes from the scale 10 / 12 / 13 / 14 / 16 / 20 / 24 / 36 / 61 / 96 px (`caption`, `eyebrow`, `text-sm`, `text-base`, `text-xl`, `subheading`, `heading`, `heading-lg`, `display`); body line-height 1.4–1.5, display 1.0; radii 16 px (cards) and 6 px (controls); card padding 36–48 px; section rhythm `py-20 md:py-28`; no box shadows. Legacy token names used by the admin dashboard (`primary`, `bg-dark`, `text`, …) are aliased to this palette.
 
 
 ## Deployment
@@ -170,6 +173,21 @@ Make sure to add your environment variables in the Vercel dashboard.
 ### Update personal details, navigation and socials
 
 Edit `lib/content/site.ts`.
+
+### Update the case studies and principles
+
+Projects are listed from the `projects` table, but the three case studies (Swift POS, JetCrash, Kikapu) take their problem statement, architecture, decisions and proof figures from `lib/content/case-studies.ts`; a database row is matched to a case study by title. For those three, the row's `description` is not displayed. The "Approach" section reads `lib/content/principles.ts`.
+
+### Regenerate the résumé PDF
+
+`/resume` has print styles. With a production server running on port 3100, export the PDF with Playwright:
+
+```js
+const page = await browser.newPage();
+await page.goto("http://localhost:3100/resume", { waitUntil: "networkidle" });
+await page.emulateMedia({ media: "print" });
+await page.pdf({ path: "public/resume.pdf", format: "A4", printBackground: false });
+```
 
 ### Update work experience, education and skills
 

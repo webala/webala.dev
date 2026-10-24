@@ -10,7 +10,7 @@ export default function SiteLayout({
     <>
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:btn-base focus:btn-kelp"
+        className="print-hide sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:btn-base focus:btn-kelp"
       >
         Skip to content
       </a>

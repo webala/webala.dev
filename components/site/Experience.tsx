@@ -16,8 +16,8 @@ export default function Experience() {
       <SectionHeader
         id="experience-heading"
         eyebrow="Experience"
-        title="Five years, five teams, one standard."
-        description="From component libraries to ledgered balances — the roles that shaped how I build."
+        title="Five years across six teams."
+        description="Contract and in-house roles across mobility, gaming, fintech and media, mostly with remote teams."
         action={{ label: "Full résumé", href: "/resume" }}
       />
 
@@ -32,8 +32,8 @@ export default function Experience() {
             >
               <div className="flex items-start justify-between gap-6">
                 <div>
-                  <p className="eyebrow text-[11px]">
-                    {role.company} · {role.start} — {role.end}
+                  <p className="eyebrow">
+                    {role.company} · {role.engagement} · {role.start} — {role.end}
                   </p>
                   <h3 className="subheading mt-4">{role.title}</h3>
                 </div>
@@ -43,14 +43,14 @@ export default function Experience() {
                   className="mt-1"
                 />
               </div>
-              <p className="mt-4 max-w-[60ch] text-[15px] leading-relaxed text-silver-mist">
+              <p className="mt-4 max-w-[60ch] text-base leading-[1.5] text-silver-mist">
                 {role.summary}
               </p>
               <ul className="mt-5 flex flex-col gap-3">
                 {role.highlights.map((idx) => (
                   <li
                     key={idx}
-                    className="flex gap-3 text-[15px] leading-relaxed text-silver-mist"
+                    className="flex gap-3 text-sm leading-[1.5] text-silver-mist"
                   >
                     <span
                       className="mt-[0.6em] inline-block h-1.5 w-1.5 flex-none rounded-full bg-aqua"
@@ -69,11 +69,11 @@ export default function Experience() {
 
         <aside className="lg:sticky lg:top-28 lg:self-start">
           <Molecule className="mx-auto hidden w-full max-w-[320px] lg:block" />
-          <div className="surface-card mt-0 p-8 lg:mt-10">
-            <p className="eyebrow text-[11px]">Résumé</p>
-            <p className="mt-4 text-[15px] leading-relaxed text-silver-mist">
-              The full picture — every role, education and the stack I work in —
-              on one page or as a PDF.
+          <div className="surface-card mt-0 p-9 lg:mt-10">
+            <p className="eyebrow">Résumé</p>
+            <p className="mt-4 text-sm leading-[1.5] text-silver-mist">
+              Every role with its full set of outcomes, education and the stack I
+              work in, on one page or as a PDF.
             </p>
             <div className="mt-7 flex flex-col gap-3">
               <Button href="/resume" variant="gradient">

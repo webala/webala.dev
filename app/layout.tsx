@@ -12,7 +12,7 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-const defaultTitle = `${site.name} · Lead Engineer`;
+const defaultTitle = `${site.name} · ${site.shortRole}`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -24,8 +24,10 @@ export const metadata: Metadata = {
   keywords: [
     "Daniel Webala",
     "software engineer",
-    "lead engineer",
     "full-stack developer",
+    "React Native developer",
+    "system design",
+    "DevOps",
     "Nairobi",
     "Next.js",
     "Django",

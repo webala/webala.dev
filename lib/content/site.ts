@@ -1,19 +1,22 @@
 export const site = {
   name: "Daniel Webala",
   wordmark: "webala.dev",
-  role: "Lead Engineer · Full-stack",
+  role: "Software Engineer · Full-stack, React Native & DevOps",
+  shortRole: "Software Engineer",
   location: "Nairobi, Kenya",
+  timezone: "UTC+3",
   url: "https://webala.dev",
   email: "webaladaniel@gmail.com",
   description:
-    "Daniel Webala is a Nairobi-based lead engineer building payment-grade web systems with Next.js, Node.js, Django and Postgres.",
+    "Daniel Webala is a Nairobi-based software engineer who designs and builds web, mobile and backend systems end to end: React and Next.js, React Native, Node.js and Django, with the CI/CD, containers and monitoring to run them.",
+  availability:
+    "Open to contract and freelance work: full-stack web, React Native apps, backend APIs and DevOps. Remote with overlap for Europe and US Eastern hours, or on site in Nairobi. Can start within a week.",
   resumePdf: "/resume.pdf",
   resumeFileName: "Daniel_Webala_Resume.pdf",
   currentBuild: {
     name: "Swift POS",
     url: "https://app.swift9os.com",
-    blurb:
-      "a point-of-sale platform covering sales, inventory, purchase orders, role-based access and M-Pesa payments.",
+    blurb: "a multi-tenant point-of-sale platform in production.",
   },
   socials: [
     {
@@ -43,6 +46,7 @@ export const site = {
   ],
   nav: [
     { label: "Work", href: "/#work" },
+    { label: "Approach", href: "/#approach" },
     { label: "Experience", href: "/#experience" },
     { label: "Writing", href: "/blog" },
     { label: "Contact", href: "/#contact" },

@@ -25,7 +25,7 @@ export default function Articles() {
         id="writing-heading"
         eyebrow="Writing"
         title="Notes from the build."
-        description="Engineering write-ups on payments, performance and the systems behind the products."
+        description="Write-ups on system design, mobile releases and running small infrastructure well."
         action={{ label: "All writing", href: "/blog" }}
       />
 
@@ -46,9 +46,10 @@ export default function Articles() {
       ) : (
         <div className="surface-card p-9">
           <p className="subheading">First articles are in the works.</p>
-          <p className="mt-3 max-w-[52ch] text-[15px] leading-relaxed text-silver-mist">
-            Payments integrations, Redis caching patterns and shipping Next.js
-            at scale — follow along on LinkedIn or X to catch them when they land.
+          <p className="mt-3 max-w-[52ch] text-base leading-[1.5] text-silver-mist">
+            Append-only ledgers, idempotent webhooks, shipping React Native to
+            both stores, and running a VPS without surprises. Follow along on
+            LinkedIn or X to catch them when they land.
           </p>
         </div>
       )}
