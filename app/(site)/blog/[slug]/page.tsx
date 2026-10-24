@@ -79,10 +79,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
         <header className="mt-10">
           {post.tags && post.tags.length > 0 && (
-            <p className="eyebrow text-[11px]">{post.tags.join(" · ")}</p>
+            <p className="eyebrow">{post.tags.join(" · ")}</p>
           )}
           <h1 className="heading-lg mt-5">{post.title}</h1>
-          <p className="mt-6 text-lg leading-relaxed text-silver-mist">
+          <p className="mt-6 text-xl leading-[1.5] text-silver-mist">
             {post.excerpt}
           </p>
           <p className="caption mt-6 text-slate-deep">
@@ -111,7 +111,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
         <footer className="recessed mt-16 flex flex-col gap-6 p-8 md:flex-row md:items-center md:justify-between md:p-10">
           <div>
-            <p className="eyebrow text-[11px]">Enjoyed this?</p>
+            <p className="eyebrow">Enjoyed this?</p>
             <p className="subheading mt-3">Let&rsquo;s talk about your system.</p>
           </div>
           <Button href="/#contact" variant="gradient">

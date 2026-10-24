@@ -26,9 +26,9 @@ export default function ArticleCard({ post }: { post: BlogPost }) {
           />
         </div>
       )}
-      <div className="flex flex-1 flex-col p-7">
+      <div className="flex flex-1 flex-col p-9">
         <div className="flex items-start justify-between gap-4">
-          <p className="eyebrow min-h-[1.2em] text-[11px]">
+          <p className="eyebrow min-h-[1.4em]">
             {(post.tags ?? []).slice(0, 3).join(" · ")}
           </p>
           <span className="arrow-btn" aria-hidden="true">
@@ -43,7 +43,7 @@ export default function ArticleCard({ post }: { post: BlogPost }) {
             {post.title}
           </Link>
         </h3>
-        <p className="mt-3 line-clamp-3 flex-1 text-[15px] leading-relaxed text-silver-mist">
+        <p className="mt-3 line-clamp-3 flex-1 text-sm leading-[1.5] text-silver-mist">
           {post.excerpt}
         </p>
         <p className="caption mt-7 text-slate-deep">

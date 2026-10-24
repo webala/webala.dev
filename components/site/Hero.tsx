@@ -17,14 +17,17 @@ export default function Hero() {
 
       <div className="container-site relative flex flex-col items-center pb-20 pt-36 text-center md:pb-24 md:pt-40">
         <p className="eyebrow">
-          {site.name} · Lead Engineer · Nairobi, KE
+          {site.name} · {site.shortRole} · Nairobi, {site.timezone}
         </p>
-        <h1 className="display mt-7 max-w-[13ch]">
-          Systems that hold up when the money moves.
+        <h1 className="display mt-7 max-w-[14ch]">
+          I design systems and build them end to end.
         </h1>
-        <p className="mt-8 max-w-[58ch] text-[17px] leading-relaxed text-silver-mist md:text-lg">
-          Full-stack engineer with five years shipping payment-grade products
-          across Next.js, Node.js, Django and Postgres. Currently building{" "}
+        <p className="mt-8 max-w-[60ch] text-base leading-[1.5] text-silver-mist md:text-xl md:leading-[1.5]">
+          Full-stack engineer across React and Next.js, React Native, Node.js
+          and Django. Five years shipping production software: a real-time
+          gaming platform, ride-hailing apps, a savings-group app on the App
+          Store, and the pipelines and monitoring that keep them running.
+          Currently building{" "}
           <a
             href={site.currentBuild.url}
             target="_blank"

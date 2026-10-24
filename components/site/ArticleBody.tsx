@@ -3,7 +3,7 @@ import ReactMarkdown from "react-markdown";
 /** Markdown renderer for blog posts, mapped onto the site's type and surfaces. */
 export default function ArticleBody({ content }: { content: string }) {
   return (
-    <div className="text-[17px] leading-[1.7] text-silver-mist">
+    <div className="text-base leading-[1.5] text-silver-mist md:text-xl md:leading-[1.5]">
       <ReactMarkdown
         components={{
           h1: ({ ...props }) => (
@@ -29,13 +29,13 @@ export default function ArticleBody({ content }: { content: string }) {
           ),
           code: ({ ...props }) => (
             <code
-              className="rounded-[4px] bg-liquid-kelp px-1.5 py-0.5 font-mono text-[0.9em] text-liquid-mist"
+              className="rounded-[6px] bg-liquid-kelp px-1.5 py-0.5 font-mono text-[0.9em] text-liquid-mist"
               {...props}
             />
           ),
           pre: ({ ...props }) => (
             <pre
-              className="mb-6 overflow-x-auto rounded-[6px] bg-liquid-deep p-5 text-[14px] leading-relaxed [&_code]:bg-transparent [&_code]:p-0"
+              className="mb-6 overflow-x-auto rounded-[6px] bg-liquid-deep p-5 text-sm leading-[1.5] [&_code]:bg-transparent [&_code]:p-0"
               {...props}
             />
           ),

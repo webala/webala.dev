@@ -1,5 +1,6 @@
 import Hero from "@/components/site/Hero";
 import Projects from "@/components/site/Projects";
+import Approach from "@/components/site/Approach";
 import Experience from "@/components/site/Experience";
 import Articles from "@/components/site/Articles";
 import ContactCTA from "@/components/site/ContactCTA";
@@ -9,6 +10,7 @@ export default function Home() {
     <main>
       <Hero />
       <Projects />
+      <Approach />
       <Experience />
       <Articles />
       <ContactCTA />

@@ -31,8 +31,8 @@ export default function BlogPage() {
           <p className="eyebrow">Writing</p>
           <h1 className="heading-lg mt-5">Notes from the build.</h1>
           <p className="mt-5 max-w-[52ch] text-silver-mist">
-            Thoughts, tutorials and post-mortems on software engineering, web
-            development and the systems that move money.
+            Notes and post-mortems on system design, web and mobile
+            engineering, and running small infrastructure well.
           </p>
         </div>
         <div className="relative w-full md:max-w-sm">
@@ -59,7 +59,7 @@ export default function BlogPage() {
       {error ? (
         <div className="surface-card p-9">
           <p className="subheading">Writing is temporarily unavailable.</p>
-          <p className="mt-3 text-[15px] text-silver-mist">
+          <p className="mt-3 text-base text-silver-mist">
             Please try again in a moment.
           </p>
         </div>
@@ -82,7 +82,7 @@ export default function BlogPage() {
       ) : (
         <div className="surface-card p-9">
           <p className="subheading">First articles are in the works.</p>
-          <p className="mt-3 max-w-[52ch] text-[15px] leading-relaxed text-silver-mist">
+          <p className="mt-3 max-w-[52ch] text-base leading-[1.5] text-silver-mist">
             Payments integrations, Redis caching patterns and shipping Next.js
             at scale — check back soon.
           </p>

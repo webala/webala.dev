@@ -41,7 +41,7 @@ export default function Navigation() {
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+        className={`print-hide fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
           scrolled || open
             ? "bg-liquid-abyss/90 backdrop-blur-md"
             : "bg-transparent"
@@ -110,7 +110,7 @@ export default function Navigation() {
           turn the header into the containing block for this fixed element. */}
       <div
         id="mobile-menu"
-        className={`md:hidden ${open ? "block" : "hidden"} fixed inset-x-0 bottom-0 top-20 z-40 overflow-y-auto bg-liquid-deep`}
+        className={`print-hide md:hidden ${open ? "block" : "hidden"} fixed inset-x-0 bottom-0 top-20 z-40 overflow-y-auto bg-liquid-deep`}
       >
         <div className="container-site flex h-full flex-col justify-between py-10">
           <ul className="flex flex-col gap-2">
