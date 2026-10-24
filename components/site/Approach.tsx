@@ -29,7 +29,7 @@ export default function Approach() {
               <p className="mt-4 max-w-[52ch] text-base leading-[1.5] text-silver-mist">
                 {p.body}
               </p>
-              <p className="caption mt-5 text-slate-deep">
+              <p className="meta mt-5 text-slate-deep">
                 Applied in {p.evidence.join(" · ")}
               </p>
             </div>

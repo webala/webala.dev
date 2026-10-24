@@ -50,7 +50,7 @@ export default function CaseStudyCard({ project, study }: CaseStudyCardProps) {
             ))}
           </dl>
 
-          <p className="caption mt-8 text-slate-deep">{study.stack.join(" · ")}</p>
+          <p className="meta mt-8 text-slate-deep">{study.stack.join(" · ")}</p>
 
           {(project.demo_url || project.github_url) && (
             <div className="mt-6 flex flex-wrap gap-6">

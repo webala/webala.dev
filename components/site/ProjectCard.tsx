@@ -1,17 +1,18 @@
 import Image from "next/image";
 import { ArrowUpRight, Github } from "lucide-react";
 import type { Project } from "@/types";
+import { formatTech } from "@/lib/format";
 import ArrowLink from "./ArrowLink";
 
 /** Compact card for tools, client sites and experiments. */
 export default function ProjectCard({ project }: { project: Project }) {
   const primaryHref = project.demo_url || project.github_url;
-  const tech = project.technologies?.slice(0, 4) ?? [];
+  const tech = (project.technologies ?? []).slice(0, 4).map(formatTech);
 
   return (
     <article className="surface-card flex h-full flex-col p-9 transition-colors duration-300 hover:bg-kelp-hover/60">
       <div className="flex items-start justify-between gap-6">
-        <p className="caption min-h-[1.4em] text-silver-mist">{tech.join(" · ")}</p>
+        <p className="meta min-h-[1.4em] text-silver-mist">{tech.join(" · ")}</p>
         {primaryHref && (
           <ArrowLink href={primaryHref} label={`Open ${project.title}`} />
         )}

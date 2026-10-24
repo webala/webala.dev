@@ -31,7 +31,7 @@ export const caseStudies: CaseStudy[] = [
     decisions: [
       {
         title: "Per-device tokens without logging anyone out",
-        why: "Moved auth from single DRF tokens to django-rest-knox per-device tokens behind a backward-compatible fallback, then closed multi-tenant access-control gaps found along the way.",
+        why: "Moved auth from single DRF tokens to Knox per-device tokens (django-rest-knox) behind a backward-compatible fallback, then closed multi-tenant access-control gaps found along the way.",
       },
       {
         title: "Shared contracts instead of duplicated clients",
@@ -116,7 +116,7 @@ export const caseStudies: CaseStudy[] = [
       "Savings groups (chamas) keep money records that several officials must agree on and that must never be silently edited. The app had to make that true on a phone, offline-tolerant, with M-Pesa in the loop.",
     architecture: [
       "React Native with Expo Router and TypeScript, TanStack Query and Zustand, supabase-js with sessions in SecureStore; released on the iOS App Store.",
-      "Supabase PostgreSQL with row-level security policies, Deno edge functions and Zod schemas shared with the client.",
+      "Supabase PostgreSQL with row-level security policies, Deno Edge Functions and Zod schemas shared with the client.",
       "Double-entry, append-only SQL ledger: balanced debit and credit lines, amounts stored as integer cents, updates and deletes blocked by triggers, corrections recorded as new adjustment transactions.",
       "Idempotent M-Pesa callback handling keyed on a unique external reference, so replays return the existing transaction instead of a duplicate.",
     ],

@@ -63,7 +63,7 @@ export default function Footer() {
 
         <div className="mt-16 flex flex-col gap-3 border-t border-white/10 pt-8 text-[12px] text-slate-deep sm:flex-row sm:items-center sm:justify-between">
           <p>© {year} {site.name}. All rights reserved.</p>
-          <p className="caption">{site.location} · Built with Next.js</p>
+          <p className="meta">{site.location} · Built with Next.js</p>
         </div>
       </div>
     </footer>

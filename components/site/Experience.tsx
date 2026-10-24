@@ -33,9 +33,10 @@ export default function Experience() {
               <div className="flex items-start justify-between gap-6">
                 <div>
                   <p className="eyebrow">
-                    {role.company} · {role.engagement} · {role.start} — {role.end}
+                    {role.engagement} · {role.start} — {role.end}
                   </p>
                   <h3 className="subheading mt-4">{role.title}</h3>
+                  <p className="mt-1 text-sm text-liquid-mist">{role.company}</p>
                 </div>
                 <ArrowLink
                   href="/resume"
@@ -60,7 +61,7 @@ export default function Experience() {
                   </li>
                 ))}
               </ul>
-              <p className="caption mt-6 text-slate-deep">
+              <p className="meta mt-6 text-slate-deep">
                 {role.stack.join(" · ")}
               </p>
             </li>

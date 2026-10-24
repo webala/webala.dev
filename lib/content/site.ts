@@ -10,7 +10,7 @@ export const site = {
   description:
     "Daniel Webala is a Nairobi-based software engineer who designs and builds web, mobile and backend systems end to end: React and Next.js, React Native, Node.js and Django, with the CI/CD, containers and monitoring to run them.",
   availability:
-    "Open to contract and freelance work: full-stack web, React Native apps, backend APIs and DevOps. Remote with overlap for Europe and US Eastern hours, or on site in Nairobi. Can start within a week.",
+    "Open to contract and freelance work: full-stack web, React Native apps, backend APIs and DevOps. Remote with overlap for Europe and US Eastern hours, or on site in Nairobi.",
   resumePdf: "/resume.pdf",
   resumeFileName: "Daniel_Webala_Resume.pdf",
   currentBuild: {

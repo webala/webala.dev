@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { getBlogPostBySlug } from "@/lib/queries";
 import { site } from "@/lib/content/site";
 import ArticleBody from "@/components/site/ArticleBody";
+import { formatTech } from "@/lib/format";
 import Button from "@/components/site/Button";
 import type { BlogPost } from "@/types";
 
@@ -79,7 +80,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
         <header className="mt-10">
           {post.tags && post.tags.length > 0 && (
-            <p className="eyebrow">{post.tags.join(" · ")}</p>
+            <p className="meta text-silver-mist">{post.tags.map(formatTech).join(" · ")}</p>
           )}
           <h1 className="heading-lg mt-5">{post.title}</h1>
           <p className="mt-6 text-xl leading-[1.5] text-silver-mist">
